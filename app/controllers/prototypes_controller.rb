@@ -17,7 +17,7 @@ class PrototypesController < ApplicationController
     else
       render :new
     end
-
+    
   end
 
   def show
@@ -35,7 +35,6 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-
     if @prototype.update(prototype_params)
       redirect_to prototype_path
     else 
@@ -58,5 +57,4 @@ class PrototypesController < ApplicationController
   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
-
 end
